@@ -100,27 +100,27 @@ var generateBtn = document.querySelector("#generate");
 generateBtn.addEventListener("click", writePassword);
 
 //Write password to the #password input
-
+var Chocies
 function writePassword() {
-  var password = generatePassword();
-  var password = generatePassword();
-  var password = ""
-  for(var  i = 0; i < characterLength; i++ ) 
 
-    var randomLetter = Math.floor(Math.random)() *Chocies.length
-    password = password + Chocies[randomLetter]
+  var password = "";
 
-    var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
- 
+  // prompt the user here.
   var  goodChoices = getPrompts();
+  // put currly barackets 
+  for(var  i = 0; i < characterLength; i++ ) {
 
-  if(goodChoices)
+    var randomLetter = Math.floor(Math.random() * Chocies.length);
+    password = password + Chocies[randomLetter];
+  }
 
-   return password
+  var passwordText = document.querySelector("#password");
+  passwordText.value = password;
+
+  if(goodChoices) {
+    return password
+  }
 }
-
 function generatePassword(){
 // a new password generated from prompts
 
