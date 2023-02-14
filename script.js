@@ -1,18 +1,10 @@
-// Assignment Code
-var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
-}
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+var characterLength =8;
+var Chocies = []
 
 // Array of special characters to be included in password
-var specialCharacters = [ 
+var specialCharactersArray = [ 
   "@",
   "$",
   "+",
@@ -39,10 +31,10 @@ var specialCharacters = [
   ];
   
   // Array of numeric characters to be included in password
-  var numericCharacters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9]"];
+  var numericCharactersArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9]"];
   
   // Array of lowercase characters to be included in password
-  var lowercaseCharacters = [
+  var lowercaseCharactersArray = [
   "a",
   "b",
   "c",
@@ -72,7 +64,7 @@ var specialCharacters = [
   ];
   
   // // Array of uppercase characters to be included in password
-  var uppercaseCharacters = [
+  var uppercaseCharactersArray = [
     "A",
     "B",
     "C",
@@ -102,24 +94,62 @@ var specialCharacters = [
     ];
 
 
+var generateBtn = document.querySelector("#generate");
 
-// Password Prompt Dialog and variables
-alert("Your password must be between 8 and 128 characters.")
+function generatePassword(){
+  console.log("Button Clicked!");
 
-alert("Would you like to use lower case characters?")
-var getlowercaseCharacters
-alert("Would you like to use special characters?")
-var getspecialCharacters
-alert("Would you like to use upper case characters?")
-var getuppercaseCharacters
-alert("Would you like to use upper case numeric characters?")
-var getnumericCharacters
-// Miniminum count for each character set
-var minimumCount = 0;
+  return password;
+}
 
-// Empty minimums for numbers, lowerCases, upperCases & specialCharacters
+function getPrompts(){
+  Chocies = [];
+  characterLength = parseInt(prompt("How many characters would you like your password to be? (Between 8-128 characters"));
 
-var minNumeric= "";
-var minLowercae = "";
-var minUppercase = "";
-var minSpecialChar = "";
+  if(isNaN(characterLength) || characterLength < 8 || characterLength > 128 ) {
+    alert("Password length has to be numeric, please enter again.");
+    return false;
+  }
+
+  if(confirm("Would you like lower case letters in your password?")){
+    Chocies = Chocies.concat(lowercaseCharactersArray);
+  }
+
+  if(confirm("Would you like upper case letters in your password?")){
+    Chocies = Chocies.concat(uppercaseCharactersArray);
+  }
+
+  if(confirm("Would you like special characters in your password?")){
+    Chocies = Chocies.concat(specialCharactersArray);
+  }
+
+  if(confirm("Would you like numbers in your password?")){
+    Chocies = Chocies.concat(numericCharactersArray);
+  }
+
+  return true
+  
+}
+
+
+
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
+  var password = generatePassword();
+  var password = ""
+  for(var  i = 0; i < characterLength; i++ ) 
+
+    var randomLetter = Math.floor(Math.random)() *Chocies.length
+    password = password + Chocies[randomLetter]
+
+    var passwordText = document.querySelector("#password");
+
+  passwordText.value = password;
+ 
+  var  goodChoices = getPrompts();
+
+  if(goodChoices)
+
+   return password
+}
