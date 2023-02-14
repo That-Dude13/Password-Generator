@@ -1,13 +1,9 @@
-// Assignment Code
-var generateBtn = document.querySelector("#generate");
-//Button Functionality and passwrod genration prompts
-function generatePassword(){
-  
-  
-  return password
 
-}
 
+var characterLength =8;
+var Chocies = []
+
+// Array of special characters to be included in password
 var specialCharactersArray = [ 
   "@",
   "$",
@@ -97,7 +93,41 @@ var specialCharactersArray = [
     "Z",
     ];
 
-  function getPrompts(){
+//Assignent Code
+var generateBtn = document.querySelector("#generate");
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
+
+//Write password to the #password input
+
+function writePassword() {
+  var password = generatePassword();
+  var password = generatePassword();
+  var password = ""
+  for(var  i = 0; i < characterLength; i++ ) 
+
+    var randomLetter = Math.floor(Math.random)() *Chocies.length
+    password = password + Chocies[randomLetter]
+
+    var passwordText = document.querySelector("#password");
+
+  passwordText.value = password;
+ 
+  var  goodChoices = getPrompts();
+
+  if(goodChoices)
+
+   return password
+}
+
+function generatePassword(){
+// a new password generated from prompts
+
+  return password;
+}
+
+function getPrompts(){
   Chocies = [];
   characterLength = parseInt(prompt("How many characters would you like your password to be? (Between 8-128 characters"));
 
@@ -126,38 +156,4 @@ var specialCharactersArray = [
   
 }
 
-  // Write password to the #password input
 
-  function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-  
-  //Created password random password varibles
-  var password = generatePassword();
-  var password = generatePassword();
-  var password = ""
-  var characterLength =8;
-  var Chocies = []
-
-
-  for(var  i = 0; i < characterLength; i++ ) 
-
-    var randomLetter = Math.floor(Math.random)() *Chocies.length
-    password = password + Chocies[randomLetter]
-
-    var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
- 
-  var  goodChoices = getPrompts();
-
-  if(goodChoices)
-
-   return password
-
-}
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
